@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif; 
+}
+
+.home {
+    background: url('../assets/background.png');
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    padding: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position:relative;
+    /* background-color: black; */
+}
+
+.title {
+    /* border: 2px solid black; */
+    padding: 10px;
+    max-width: 60%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.title h1 {
+    background: black;
+    opacity: .8;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 75px;
+    padding: 5px;
+    color: white;
+}
+
+.title button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: transparent;
+    border: 5px solid black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    justify-content: center;  
+    font-size: 20px;
+}
+
+.title button a {
+    text-decoration: none;
+    color: rgb(10, 7, 7);
+}
+
+.title button :hover{
+    background: darkgrey;
+    border: 2px dashed black;
+}
+
+.welcome {
+    min-height: 100vh;
+
+}
