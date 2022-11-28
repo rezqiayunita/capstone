@@ -18,7 +18,45 @@
     </div>
 
     <div id="welcome" class="welcome">
-        hai
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <h1 class="exp-title">What is Breast Cancer?</h1>
+              <img class="exp-img" src="./assets/breast.png" alt="breast-cancer">
+              <p class="description">Breast cancer is a disease in which malignant (cancer) cells form in the tissues of the breast. Different types of breast cancer exists. The 2 main groups are non-invasive breast cancers and invasive breast cancers.</p>
+            </div>
+            
+            <div class="mySlides">
+              <h1 class="exp-title">Facts About Breast Cancer</h1>
+              <img class="exp-img" src="./assets/facts.png" alt="breast-cancer">
+              <p class="description">There's a good chance of recovery if it's detected at an early stage.</p>
+            </div>
+            
+            <div class="mySlides">
+              <h1 class="exp-title">Causes of Breast Cancer</h1>
+              <img class="exp-img" src="./assets/causes.png" alt="breast-cancer">
+              <p class="description"> </p>
+            </div>
+
+            <div class="mySlides">
+              <h1 class="exp-title">Detect Potential of Breast Cancer</h1>
+              <img class="exp-img" src="./assets/detect.png" alt="breast-cancer">
+              <p class="description">Your healthcare provider will perform a breast examination and ask about your series of family, medical history and any existing symptoms. Your healthcare provider will also recommend tests to check for breast abnormalities. These tests may include
+                BREAST ULTRASOUND, DIAGNOSTIC MAMMOGRAM, BREAST MAGNETIC RESONANCE IMAGE (MRI), BIOPSY.</p>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+        </div>
+
+        <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        </div>
+        
     </div>
 
     <div id="how-to-use" class="how-to-use">
@@ -34,5 +72,33 @@
     </div>
 
     <script src="index.js"></script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
 </body>
 </html>
