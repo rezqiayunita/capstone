@@ -49,16 +49,12 @@
             <a class="next" onclick="plusSlides(1)">❯</a>
 
             <div class="dot-container">
-              <span class="dot" onclick="currentSlide(1)"></span> 
-              <span class="dot" onclick="currentSlide(2)"></span> 
-              <span class="dot" onclick="currentSlide(3)"></span>
-              <span class="dot" onclick="currentSlide(4)"></span> 
+              <span class="dot dot-1" onclick="currentSlide(1)"></span> 
+              <span class="dot dot-2" onclick="currentSlide(2)"></span> 
+              <span class="dot dot-3" onclick="currentSlide(3)"></span>
+              <span class="dot dot-4" onclick="currentSlide(4)"></span> 
               </div>
-
         </div>
-
-        
-
     </div>
 
     <div id="how-to-use" class="how-to-use">
@@ -66,14 +62,42 @@
     </div>
 
     <div id="predict" class="predict">
-        <h1>PREDICT BREAST CANCER</h1>
-        <form action="submit">
-            <label for="name">Name</label>
-            <input type="text">
-        </form>
-    </div>
+      <h1 class="title">Predict</h1>
+      <div class="box">
+                <div class="form">
+                  <form action="#">
+                    <div class="input-data">
+                      <label for="name">Nama</label>
+                      <input type="text" placeholder="Masukkan Nama">
+                    </div>
+                    <div class="input-data">
+                      <label for="age">Umur</label>
+                      <input type="number" placeholder="Masukkan Umur">
+                    </div>
+                    <div class="input-data">
+                      <label for="gender">Gender</label>
+                      <select name="gender" id="gender">
+                        <option>--Pilih Jenis Kelamin--</option>
+                        <option value="male">Laki-Laki</option>
+                        <option value="female">Perempuan</option>
+                      </select>
+                    </div>
+                    <div class="input-data">
+                      <label for="image">Gambar Scan</label>
+                      <input type="file" accept="image/*" name="image" id="image">
+                    </div>
+                    <div class="submit-btn">
+                      <input type="submit" value="Submit">
+                    </div>
+                  </form>
+              </div>
+              <div class="hasil">
+                <h3 class="title">Hasil</h3>
+              </div>
+      </div>
+  </div>
 
-    <script src="index.js"></script>
+    <script type="module" src="app.js"></script>
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
