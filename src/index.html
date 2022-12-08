@@ -65,27 +65,30 @@
       <h1 class="title">Predict</h1>
       <div class="box">
                 <div class="form">
-                  <form action="#">
+                  <form onsubmit="return false">
                     <div class="input-data">
                       <label for="name">Nama</label>
-                      <input type="text" placeholder="Masukkan Nama">
+                      <input type="text" id="name" placeholder="Masukkan Nama" required>
+                      <p class="error" id="error-name">Masukkan Nama Anda!!</p>
                     </div>
                     <div class="input-data">
                       <label for="age">Umur</label>
-                      <input type="number" placeholder="Masukkan Umur">
+                      <input type="number" id="age" placeholder="Masukkan Umur" required>
+                      <p class="error" id="error-age">Masukkan Umur Anda!!</p>
                     </div>
                     <div class="input-data">
                       <label for="gender">Gender</label>
-                      <select name="gender" id="gender">
-                        <option>--Pilih Jenis Kelamin--</option>
-                        <option value="male">Laki-Laki</option>
-                        <option value="female">Perempuan</option>
+                      <select name="gender" id="gender" required>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
                       </select>
                     </div>
                     <div class="input-data">
                       <label for="image">Gambar Scan</label>
-                      <input type="file" accept="image/*" name="image" id="image">
+                      <input type="file" accept="image/*" name="image" id="image" required>
+                      <p class="error" id="error-image">Masukkan Gambar Scan!!</p>
                     </div>
+                    <img src="" width="200px" alt="preview" class="preview" hidden>
                     <div class="submit-btn">
                       <input type="submit" value="Submit">
                     </div>
@@ -93,6 +96,9 @@
               </div>
               <div class="hasil">
                 <h3 class="title">Hasil</h3>
+                <div class="result">
+                  
+                </div>
               </div>
       </div>
   </div>

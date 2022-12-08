@@ -188,6 +188,11 @@
   width: 50%;
 }
 
+.error {
+  color: red;
+  display: none;
+}
+
 .input-data {
   padding-bottom: 10px;
 }
@@ -229,6 +234,15 @@
 .submit-btn input:hover {
   background: rgba(47, 151, 199, 0.7);
   color: rgb(255, 255, 255);
+}
+
+.result {
+  display: block;
+  padding: 20px;
+}
+
+.result h4 {
+  margin-bottom: 12px;
 }
 /* .input-data {
   padding: 20px;
