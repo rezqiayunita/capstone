@@ -2,6 +2,10 @@ const main = () => {
     const submitButton = document.querySelector('input[type=submit]') 
     const fileUpload = document.querySelector('input[type=file]')
 
+    const loadModel = async() => {
+      const model = await tf.loadGraphModel
+    }
+
     function submitData() {
         const inputName = document.querySelector('#name').value
         const inputAge = document.querySelector('#age').value
@@ -18,10 +22,10 @@ const main = () => {
         }
         else if(inputName && inputAge && inputImage && inputGender){
             result.innerHTML = `
-            <h4>Nama: ${inputName}</h4>
-            <h4>Umur: ${inputAge}</h4>
-            <h4>Jenis Kelamin: ${inputGender}</h4>
-            <h4>Hasil Scan: </h4>
+            <h4>Nama          : ${inputName}</h4>
+            <h4>Umur          : ${inputAge}</h4>
+            <h4>Jenis Kelamin : ${inputGender}</h4>
+            <h4>Hasil Scan    : </h4>
             <img src="${file.src}" width="200px" alt="">`
         }
     }

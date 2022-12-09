@@ -12,6 +12,7 @@
     min-height: 100vh;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     padding: 100px;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,6 @@
 }
 
 .title {
-    /* border: 2px solid black; */
     padding: 10px;
     max-width: 60%;
     justify-content: space-between;
@@ -36,7 +36,7 @@
     color: white;
 }
 
-.title button {
+.buttons button {
     display: inline-block;
     margin: 10px;
     padding: 10px;
@@ -46,16 +46,16 @@
     letter-spacing: 1px;
     justify-content: center;  
     font-size: 20px;
+    cursor: pointer;
 }
 
-.title button a {
-    text-decoration: none;
-    color: rgb(10, 7, 7);
+.buttons button:hover {
+  background-color: rgba(204, 188, 188, 0.7)
 }
 
-.title button :hover{
-    background: darkgrey;
-    border: 2px dashed black;
+.buttons a{
+  text-decoration: none;
+  color: black;
 }
 
 .welcome, .predict {
@@ -66,6 +66,11 @@
     padding: 100px;
     justify-content: center;
     align-items: center;
+}
+
+.page-title{
+  padding: 20px;
+  text-align: center;
 }
 
 .slideshow-container {
@@ -143,13 +148,27 @@
     background: url('../assets/background.png');
     min-height: 100vh;
     background-size: cover;
-    display: flex;
+    display: block;
     padding: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
     background-color: black;
+    flex-direction: column;
+}
+
+.content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    height: 100%;
+    padding: 20px 40px;
+    text-align: left;
+}
+
+.content h2 {
+  margin-top: 20px;
 }
 
 .predict {
@@ -158,7 +177,6 @@
     min-height: 100vh;
     background-size: cover;
     padding: 100px;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
 }
@@ -227,12 +245,12 @@
   border: none;
   border-radius: 3px;
   color: rgb(209, 209, 209);
-  background: rgba(21, 81, 190, 0.7);
+  background: rgba(21, 81, 190);
   cursor: pointer;
 }
 
 .submit-btn input:hover {
-  background: rgba(47, 151, 199, 0.7);
+  background: rgba(47, 151, 199);
   color: rgb(255, 255, 255);
 }
 
@@ -244,49 +262,3 @@
 .result h4 {
   margin-bottom: 12px;
 }
-/* .input-data {
-  padding: 20px;
-}
-
-input {
-  position: relative;
-  left: 20px;
-  padding: 0 20px;
-  line-height: 40px;
-  border-radius: 6px;
-  font-size: 18px;
-}
-
-select {
-  padding: 10px;
-  border-radius: 4px;
-}
-
-option {
-  padding: 20px;
-}
-
-label {
-  margin-left: 25px;
-  margin-top: 30px;
-  margin-bottom: 25px;
-  width: 125px;
-  font-size: 18px;
-}
-
-.submit {
-  width: 100%;
-  height: 20%;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);;
-  border-radius: 8px;
-}
-
-.submit:hover {
-  background-color: blue;
-} */
-
-/* .hasil {
-  width: 50%;
-} */
-

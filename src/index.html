@@ -5,44 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <title>Breast Cancer Prediction</title>
+    <title>Prediksi Kanker Payudara</title>
 </head>
 <body>
     <div id="home" class="home">
         <div class="title">
-            <h1>BREAST CANCER PREDICTION</h1>
-            <button><a href="#welcome">WELCOME</a></button>
-            <button><a href="#how-to-use">HOW TO USE</a></button>
-            <button><a href="#predict">PREDICT NOW!</a></button>
+          <h1>PREDIKSI KANKER PAYUDARA</h1>
+        </div>
+        <div class="buttons">
+          <button><a href="#welcome">PENDAHULUAN</a></button>
+          <button><a href="#how-to-use">CARA PENGGUNAAN</a></button>
+          <button><a href="#predict">PREDIKSI SEKARANG!</a></button>
         </div>
     </div>
 
     <div id="welcome" class="welcome">
-        <div class="slideshow-container">
+      <h1 class="page-title">PENDAHULUAN</h1>  
+      <div class="slideshow-container">
 
             <div class="mySlides">
-              <h1 class="exp-title">What is Breast Cancer?</h1>
+              <h1 class="exp-title">Apa Itu Kanker Payudara?</h1>
               <img class="exp-img" src="./assets/breast.png" alt="breast-cancer">
-              <p class="description">Breast cancer is a disease in which malignant (cancer) cells form in the tissues of the breast. Different types of breast cancer exists. The 2 main groups are non-invasive breast cancers and invasive breast cancers.</p>
+              <p class="description">Kanker payudara adalah penyakit di mana sel-sel ganas (kanker) terbentuk di jaringan payudara. Terdapat berbagai jenis kanker payudara. 2 kelompok utama adalah kanker payudara non-invasif dan kanker payudara invasif.</p>
             </div>
             
             <div class="mySlides">
-              <h1 class="exp-title">Facts About Breast Cancer</h1>
-              <img class="exp-img" src="./assets/facts.png" alt="breast-cancer">
-              <p class="description">There's a good chance of recovery if it's detected at an early stage.</p>
+              <h1 class="exp-title">Fakta Menarik tentang Kanker Payudara</h1>
+              <img class="exp-img" src="./assets/facts.jpg" alt="breast-cancer">
+              <p class="description">Ada peluang tinggi untuk bisa pulih jika terdeteksi pada tahap awal.</p>
             </div>
             
             <div class="mySlides">
-              <h1 class="exp-title">Causes of Breast Cancer</h1>
-              <img class="exp-img" src="./assets/causes.png" alt="breast-cancer">
-              <p class="description"> </p>
+              <h1 class="exp-title">Penyebab Kanker Payudara</h1>
+              <img class="exp-img" src="./assets/causes.jpg" alt="breast-cancer">
+              <p class="description">Diatas merupakan gaya hidup yang menyebabkan tingginya tingkat resiko kanker payudara</p>
             </div>
 
             <div class="mySlides">
-              <h1 class="exp-title">Detect Potential of Breast Cancer</h1>
+              <h1 class="exp-title">Deteksi Dini Potensi Kanker Payudara</h1>
               <img class="exp-img" src="./assets/detect.png" alt="breast-cancer">
-              <p class="description">Your healthcare provider will perform a breast examination and ask about your series of family, medical history and any existing symptoms. Your healthcare provider will also recommend tests to check for breast abnormalities. These tests may include
-                BREAST ULTRASOUND, DIAGNOSTIC MAMMOGRAM, BREAST MAGNETIC RESONANCE IMAGE (MRI), BIOPSY.</p>
+              <p class="description">Penyedia layanan kesehatan Anda akan melakukan pemeriksaan payudara dan bertanya tentang seputar keluarga Anda, riwayat medis dan gejala yang ada. Penyedia layanan kesehatan Anda juga akan merekomendasikan tes untuk memeriksa kelainan payudara. Tes ini biasanya termasuk
+                USG PAYUDARA, MAMMOGRAM DIAGNOSTIC, GAMBAR RESONANSI MAGNETIK PAYUDARA (MRI), BIOPSI.</p>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -58,11 +61,17 @@
     </div>
 
     <div id="how-to-use" class="how-to-use">
-        hai test
+      <h1 class="page-title">CARA PENGGUNAAN</h1>
+      <div class="content">
+        <h2>1. Masukkan identitas anda</h2>
+        <h2>2. Masukkan foto hasil scan</h2>
+        <h2>3. Klik tombol submit</h2>
+        <h2>4. Hasil akan muncul di sebelah kanan pada kolom "Hasil"</h2>
+      </div>
     </div>
 
     <div id="predict" class="predict">
-      <h1 class="title">Predict</h1>
+      <h1 class="page-title">P R E D I K S I</h1>
       <div class="box">
                 <div class="form">
                   <form onsubmit="return false">
@@ -104,6 +113,7 @@
   </div>
 
     <script type="module" src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
