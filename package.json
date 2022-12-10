@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tensorflow/tfjs": "^4.1.0",
-    "require": "^2.4.20",
-    "requirejs": "^2.3.6"
+    "@tensorflow/tfjs": "^4.1.0"
   }
 }
