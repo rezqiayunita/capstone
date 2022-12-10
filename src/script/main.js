@@ -1,76 +1,126 @@
+const tf = require('@tensorflow/tfjs')
+// import * as tf from '@tensorflow/tfjs'
+
 const main = () => {
     const submitButton = document.querySelector('input[type=submit]') 
     const fileUpload = document.querySelector('input[type=file]')
     const file = document.querySelector('.preview')
 
-    let model;
-    async function loadModel() {
-      console.log("model loading..");
-      let modelName = "mobilenet";
-	    model = undefined;
-      model = await tf.loadLayersModel('https://raw.githubusercontent.com/rezqiayunita/capstone/main/predict/model.json');
-      console.log("model loaded..");
+    const IMAGE_HEIGHT = 50;
+    const IMAGE_WIDTH = 50;
+    const IMAGE_SIZE = IMAGE_HEIGHT * IMAGE_WIDTH;
+
+
+/*
+ * Load Model
+ */
+
+const MODEL_PATH = 'https://raw.githubusercontent.com/rezqiayunita/capstone/main/predict/model.json';
+
+const loadModel = async() => {
+    return await tf.loadModel(MODEL_PATH);
+}
+
+const predict = (model, imageData) => {
+    console.log(imageData);
+    const image = tf.fromPixels(imageData);
+    const input = image
+        // RGBA to grey
+        .max(2)
+        // Convert to float32. tf.js doesn't do implicit conversion
+        .cast('float32')
+        // Convert int to float between 0 to 1
+        .div(tf.tensor(255.))
+        // Prepare input for prediction 
+        .reshape([-1, IMAGE_HEIGHT * IMAGE_WIDTH]);
+    const prediction = model.predict(input).argMax(1);
+    return prediction.dataSync();
+}
+
+function classesFromLabels(y) {
+    return Array.from(tf.tensor(y).reshape([-1, 10]).argMax(1).dataSync());
+}
+
+/*
+ * Load data
+ */
+
+const MNIST_IMAGES_SPRITE_PATH = '/js/assets/mnist_images.png';
+const MNIST_LABELS_PATH = '/js/assets/mnist_labels_uint8';
+const NUM_DATASET_ELEMENTS = 1000;
+
+function loadData() {
+    loadImg = (img, done) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = IMAGE_SIZE;
+        canvas.height = NUM_DATASET_ELEMENTS;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        const imageData = ctx.getImageData(0, 0, img.naturalWidth, NUM_DATASET_ELEMENTS);
+        done(imageData);
     }
 
-    loadModel()
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = '';
+        img.onload = () => loadImg(img, resolve);
+        img.src = MNIST_IMAGES_SPRITE_PATH;
+    });
+}
 
-    async function predButton() {
-      console.log("model loading..");
+function loadLabels() {
+    return fetch(MNIST_LABELS_PATH);
+}
 
-      if (model == undefined) {
-        alert("Please load the model first..")
-      }
-      // if (document.getElementById("predict-box").style.display == "none") {
-      //   alert("Please load an image using 'Demo Image' or 'Upload Image' button..")
-      // }
-      console.log(model);
-      let tensor = preprocessImage(file, "mobilenet");
+/*
+ * Display
+ */
 
-      let predictions = await model.predict(tensor).data();
-      let results = Array.from(predictions)
-        .map(function (p, i) {
-          return {
-            probability: p,
-            className: IMAGENET_CLASSES[i]
-          };
-        }).sort(function (a, b) {
-          return b.probability - a.probability;
-        }).slice(0, 5);
-
-      document.querySelector('.result').innerHTML += "MobileNet prediction <br><b>" + results[0].className + "</b>";
+// For testing
+function drawImageData(imageData) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.putImageData(imageData, 0, 0);
+    document.body.appendChild(canvas);
+    for (let i = 0; i < imageData.height; ++i) {
+        const canvas = document.createElement('canvas');
+        draw(canvas, imageData, i, IMAGE_WIDTH, IMAGE_HEIGHT);
+        document.body.appendChild(canvas);
     }
+}
 
-    function preprocessImage(image, modelName) {
-      let tensor = tf.browser.fromPixels(image)
-        .resizeNearestNeighbor([224, 224])
-        .toFloat();
+function draw(canvas, src, start, width, height) {
+    canvas.width = width;
+    canvas.height = height;
+    const size = width * height * 4;
+    const p = start * size;
 
-      if (modelName === undefined) {
-        return tensor.expandDims();
-      } else if (modelName === "mobilenet") {
-        let offset = tf.scalar(127.5);
-        return tensor.sub(offset)
-          .div(offset)
-          .expandDims();
-      } else {
-        alert("Unknown model name..")
-      }
+    const imageData = new ImageData(width, height);
+    for (let i = 0; i < size; ++i) {
+        imageData.data[i] = src.data[p + i];
     }
+    const ctx = canvas.getContext('2d');
+    ctx.putImageData(imageData, 0, 0);
+}
 
-    // function loadDemoImage() {
-    //   document.getElementById("predict-box").style.display = "table-cell";
-    //   document.getElementById("prediction").innerHTML = "Click predict to find my label!";
-    //   document.getElementById("select-file-box").style.display = "table-cell";
-    //   document.getElementById("predict-list").innerHTML = "";
+function showResults(image, labels, predictions) {
+    for (let i = 0; i < predictions.length; ++i) {
+        const title = document.createElement('div')
+        title.className = (predictions[i] == labels[i]) ?
+            'pred-correct' : 'pred-incorrect';
+        title.innerHTML = `pred: ${predictions[i]} label: ${labels[i]}`;
 
-    //   base_path = "dataset/test/tennis.jpeg"
-    //   // maximum = 4;
-    //   // minimum = 1;
-    //   // var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    //   // img_path = base_path + randomnumber + ".jpeg"
-    //   img_path = base_path
-    //   document.getElementById("test-image").src = img_path;
-    // }
+        const canvas = document.createElement('canvas');
+        draw(canvas, image, i, IMAGE_WIDTH, IMAGE_HEIGHT);
+
+        const container = document.createElement('div');
+        container.className = 'pred-container';
+        container.appendChild(title);
+        container.appendChild(canvas);
+        document.body.appendChild(container);
+    }
+}
+
 
     function submitData() {
         const inputName = document.querySelector('#name').value
