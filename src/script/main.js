@@ -39,7 +39,6 @@ const main = () => {
         return top
     }
     
-
     const submitData = async () => {
         const inputName = document.querySelector('#name').value
         const inputAge = document.querySelector('#age').value
@@ -66,11 +65,10 @@ const main = () => {
             <h4>Umur          : ${inputAge}</h4>
             <h4>Jenis Kelamin : ${inputGender}</h4>
             <h4>Hasil Scan    : </h4>
-            <img src="${file.src}" width="200px" alt="">
-            <p style="margin-top: 10px">${predicted[0].probability < 0.99999999 ? "Selamat, anda terbebas dari kanker" : "Anda terindikasi terkena kanker, silakan konsultasikan ke dokter untuk pencegahan"}</p>
+            <img src="${file.src}" width="150px" alt="">
+            <p style="margin-top: 10px">${predicted[0].probability < 0.99999999 ? "Selamat, hasil tersebut tidak terindikasi adanya sel kanker" : "Anda terindikasi terkena kanker, silakan konsultasikan ke dokter untuk pencegahan"}</p>
             `
         }
-        // e.preventDefault()
     }
 
     const resetData = () => {
