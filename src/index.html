@@ -9,9 +9,12 @@
     <title>Prediksi Kanker Payudara</title>
 </head>
 <body>
+  <!-- Home -->
     <div id="home" class="home">
-        <div class="title">
-          <h1>PREDIKSI KANKER PAYUDARA</h1>
+        <div class="home-content">
+          <div class="title">
+            <h1>PREDIKSI KANKER PAYUDARA</h1>
+          </div>
         </div>
         <div class="buttons">
           <button><a href="#welcome">PENDAHULUAN</a></button>
@@ -19,7 +22,9 @@
           <button><a href="#predict">PREDIKSI SEKARANG!</a></button>
         </div>
     </div>
+    <!-- Home End -->
 
+    <!-- Welcome -->
     <div id="welcome" class="welcome">
       <h1 class="page-title">PENDAHULUAN</h1>  
       <div class="slideshow-container">
@@ -60,7 +65,9 @@
               </div>
         </div>
     </div>
+    <!-- Welcome End -->
 
+    <!-- How To Use -->
     <div id="how-to-use" class="how-to-use">
       <h1 class="page-title">CARA PENGGUNAAN</h1>
       <div class="content">
@@ -70,7 +77,9 @@
         <h2>4. Hasil akan muncul di sebelah kanan pada kolom "Hasil"</h2>
       </div>
     </div>
+    <!-- How To Use End -->
 
+    <!-- Predict  -->
     <div id="predict" class="predict">
       <h1 class="page-title">P R E D I K S I</h1>
       <div class="box">
@@ -98,7 +107,7 @@
                       <input type="file" accept="image/*" name="image" id="image" required>
                       <p class="error" id="error-image">Masukkan Gambar Scan!!</p>
                     </div>
-                    <img src="" width="50px" alt="preview" class="preview" hidden>
+                    <img src="" width="50px" alt="" class="preview" hidden>
                     <div class="submit-btn">
                       <input type="submit" value="Submit">
                     </div>
@@ -106,15 +115,17 @@
                       <input type="reset" value="Reset">
                     </div>
                   </form>
-                  <canvas id="myCanvas"></canvas>
+                  
                 </div>
               <div class="hasil">
-                <h3 class="title">Hasil</h3>
+                <hr>
+                <h3 class="result-title">Hasil</h3>
                 <div class="loader"></div>
                 <div class="result"></div>
               </div>
       </div>
-  </div>
+    </div>
+    <!-- Predict End -->
 
     <script type="module" src="app.js"></script>
     <script>
