@@ -47,8 +47,10 @@ const main = () => {
         const errorMessage = document.getElementsByClassName('error')
         const loading = document.querySelector('.loader')
         const result = document.querySelector('.result')
-
         
+        
+        if(result.innerHTML === ``) {loading.style.display = 'block'}
+
         if(!inputName || !inputAge || !inputImage){
             if(!inputName) {errorMessage[0].style.display = 'block'}
             if(!inputAge) {errorMessage[1].style.display = 'block'}
@@ -59,7 +61,6 @@ const main = () => {
             const predicted = await predicting(preprocessed)
             // console.log(preprocessed);
             // console.log(predicted)
-            if(!predicted) {loading.style.display = 'block'}
             result.innerHTML = `
             <h4>Nama          : ${inputName}</h4>
             <h4>Umur          : ${inputAge}</h4>
@@ -68,6 +69,7 @@ const main = () => {
             <img src="${file.src}" width="150px" alt="">
             <p style="margin-top: 10px">${predicted[0].probability < 0.99999999 ? "Selamat, hasil tersebut tidak terindikasi adanya sel kanker" : "Anda terindikasi terkena kanker, silakan konsultasikan ke dokter untuk pencegahan"}</p>
             `
+            loading.style.display = 'none'
         }
     }
 
