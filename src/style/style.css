@@ -11,13 +11,13 @@
     background: url('../assets/background.png');
     min-height: 100vh;
     background-size: cover;
-    display: inline-block;
+    display: block;
     flex-direction: column;
     padding: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* position: relative; */
+    position: relative;
 }
 
 .title {
