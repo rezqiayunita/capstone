@@ -10,7 +10,7 @@ const main = () => {
     const IMAGE_WIDTH = 50
 
     const loadModel = async() => {
-        return await tf.loadLayersModel('/predict/model.json')
+        return await tf.loadLayersModel('../model/model.json')
     }
     
     const preprocessImage = async (input) => {
