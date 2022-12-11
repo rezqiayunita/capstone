@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./src/style/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     <title>Prediksi Kanker Payudara</title>
 </head>
@@ -31,25 +31,25 @@
 
             <div class="mySlides">
               <h1 class="exp-title">Apa Itu Kanker Payudara?</h1>
-              <img class="exp-img" src="./assets/breast.png" alt="breast-cancer">
+              <img class="exp-img" src="./src/assets/breast.png" alt="breast-cancer">
               <p class="description">Kanker payudara adalah penyakit di mana sel-sel ganas (kanker) terbentuk di jaringan payudara. Terdapat berbagai jenis kanker payudara. 2 kelompok utama adalah kanker payudara non-invasif dan kanker payudara invasif.</p>
             </div>
             
             <div class="mySlides">
               <h1 class="exp-title">Fakta Menarik tentang Kanker Payudara</h1>
-              <img class="exp-img" src="./assets/facts.jpg" alt="breast-cancer">
+              <img class="exp-img" src="./src/assets/facts.jpg" alt="breast-cancer">
               <p class="description">Ada peluang tinggi untuk bisa pulih jika terdeteksi pada tahap awal.</p>
             </div>
             
             <div class="mySlides">
               <h1 class="exp-title">Penyebab Kanker Payudara</h1>
-              <img class="exp-img" src="./assets/causes.jpg" alt="breast-cancer">
+              <img class="exp-img" src="./src/assets/causes.jpg" alt="breast-cancer">
               <p class="description">Diatas merupakan gaya hidup yang menyebabkan tingginya tingkat resiko kanker payudara</p>
             </div>
 
             <div class="mySlides">
               <h1 class="exp-title">Deteksi Dini Potensi Kanker Payudara</h1>
-              <img class="exp-img" src="./assets/detect.png" alt="breast-cancer">
+              <img class="exp-img" src="./src/assets/detect.png" alt="breast-cancer">
               <p class="description">Penyedia layanan kesehatan Anda akan melakukan pemeriksaan payudara dan bertanya tentang seputar keluarga Anda, riwayat medis dan gejala yang ada. Penyedia layanan kesehatan Anda juga akan merekomendasikan tes untuk memeriksa kelainan payudara. Tes ini biasanya termasuk
                 USG PAYUDARA, MAMMOGRAM DIAGNOSTIC, GAMBAR RESONANSI MAGNETIK PAYUDARA (MRI), BIOPSI.</p>
             </div>
@@ -104,7 +104,9 @@
                     </div>
                     <div class="input-data">
                       <label for="image">Gambar Scan</label>
-                      <input type="file" accept="image/*" name="image" id="image" required>
+                      <div class="upload-button">
+                        <input type="file" accept="image/*" name="image" id="image" required>
+                      </div>
                       <p class="error" id="error-image">Masukkan Gambar Scan!!</p>
                     </div>
                     <img src="" width="50px" alt="" class="preview" hidden>
@@ -127,7 +129,7 @@
     </div>
     <!-- Predict End -->
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="./src/app.js"></script>
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);

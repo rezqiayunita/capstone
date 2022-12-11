@@ -10,7 +10,7 @@ const main = () => {
     const IMAGE_WIDTH = 50
 
     const loadModel = async() => {
-        return await tf.loadLayersModel('../model/model.json')
+        return await tf.loadLayersModel('https://raw.githubusercontent.com/rezqiayunita/capstone/main/src/model/model.json')
     }
     
     const preprocessImage = async (input) => {
@@ -19,7 +19,7 @@ const main = () => {
         .toFloat()
         .div(tf.scalar(255.0))
         .expandDims()
-        console.log(tensor);
+        // console.log(tensor);
 
         return tensor
     }
@@ -60,7 +60,7 @@ const main = () => {
             const preprocessed = await preprocessImage(file)
             const predicted = await predicting(preprocessed)
             // console.log(preprocessed);
-            // console.log(predicted)
+            console.log(predicted)
             result.innerHTML = `
             <h4>Nama          : ${inputName}</h4>
             <h4>Umur          : ${inputAge}</h4>
