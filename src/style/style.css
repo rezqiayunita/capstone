@@ -11,29 +11,32 @@
     background: url('../assets/background.png');
     min-height: 100vh;
     background-size: cover;
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     padding: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
+    /* position: relative; */
 }
 
 .title {
     padding: 10px;
     max-width: 60%;
-    justify-content: space-between;
     position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
 }
 
 .title h1 {
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
     font-weight: 600;
     font-size: 75px;
     padding: 5px;
     color: white;
+}
+
+.buttons {
+  margin-top: 30px;
 }
 
 .buttons button {
@@ -71,6 +74,7 @@
 .page-title{
   padding: 20px;
   text-align: center;
+  color: white;
 }
 
 .slideshow-container {
@@ -281,6 +285,16 @@
   margin-bottom: 12px;
 }
 
+hr {
+  color: black;
+  padding: 10px;
+}
+
+.result-title {
+  text-align: center;
+  margin-top: 10px;
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -294,4 +308,71 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 1000px) {
+  .title h1 {
+    font-size: 60px;
+  }
+
+  .exp-img {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .title h1 {
+    font-size: 40px;
+  }
+
+  .exp-img {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .title {
+    top: 50px;
+    max-width: 90%;
+  }
+  .title h1 {
+    font-size: 50px;
+    font-weight: 600;
+  }
+  .buttons {
+    margin-top: 150px;
+  }
+
+  .buttons button {
+    font-size: 20px;
+  }
+
+  .box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .exp-title {
+    font-size: 25px;
+  }
+
+  .exp-img {
+    width: 200px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .form, .hasil {
+    width: 100%;
+  }
+
+  .home, .welcome, .how-to-use, .predict {
+    padding: 15px;
+  }
+
+  input {
+    font-size: 10px;
+  }
 }
