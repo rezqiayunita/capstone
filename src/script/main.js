@@ -17,8 +17,8 @@ const main = () => {
         let tensor = await tf.browser.fromPixels(input)
         .resizeNearestNeighbor([IMAGE_HEIGHT, IMAGE_WIDTH])
         .toFloat()
-        .div(tf.scalar(255.0))
         .expandDims()
+        // .div(tf.scalar(255.0))
         // console.log(tensor);
 
         return tensor
@@ -35,7 +35,10 @@ const main = () => {
                 probability: parseFloat(p),
                 className: label[i]
             }
-        })
+        }).sort(function(a,b){
+            return b.probability - a.probability;
+        }).slice(0,1);
+        console.log(top);
         return top
     }
     
@@ -67,7 +70,7 @@ const main = () => {
             <h4>Jenis Kelamin : ${inputGender}</h4>
             <h4>Hasil Scan    : </h4>
             <img src="${file.src}" width="150px" alt="">
-            <p style="margin-top: 10px">${predicted[0].probability < 0.99999999 ? "Selamat, hasil tersebut tidak terindikasi adanya sel kanker" : "Anda terindikasi terkena kanker, silakan konsultasikan ke dokter untuk pencegahan"}</p>
+            <p style="margin-top: 10px">${predicted[0].className == "Bukan Kanker" ? "Selamat, hasil tersebut tidak terindikasi adanya sel kanker" : "Anda terindikasi terkena kanker, silakan konsultasikan ke dokter untuk pencegahan"}</p>
             `
             loading.style.display = 'none'
         }
