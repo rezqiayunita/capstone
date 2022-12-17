@@ -194,6 +194,11 @@
     flex-direction: row;
 }
 
+video {
+  margin-left: 10%;
+  width: 720px;
+}
+
 .title {
     padding: 10px;
     text-align: center;
@@ -343,8 +348,13 @@ hr {
     font-size: 60px;
   }
 
+  video {
+    width: 480px;
+    margin-left: 0;
+  }
+
   .exp-img {
-    width: 600px;
+    width: 500px;
   }
 }
 
@@ -353,8 +363,13 @@ hr {
     font-size: 40px;
   }
 
+  video {
+    width: 360px;
+    margin-left: 0;
+  }
+
   .exp-img {
-    width: 450px;
+    width: 400px;
   }
 }
 
@@ -378,6 +393,11 @@ hr {
   .box {
     flex-direction: column;
     width: 100%;
+  }
+
+  video {
+    width: 300px;
+    margin-left: 0;
   }
 
   .exp-title {
